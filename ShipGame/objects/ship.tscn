@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwruhhb60bwqq"]
+
+[ext_resource type="Texture2D" uid="uid://bclns4pb4phr5" path="res://sprites/ship.png" id="1_bc5mi"]
+[ext_resource type="Script" path="res://objects/ship.gd" id="1_fb44v"]
+[ext_resource type="PackedScene" uid="uid://bic1qysmqvxtt" path="res://objects/ripples.tscn" id="3_fdr8o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk5sw"]
+radius = 4.0
+height = 46.0
+
+[node name="Ship" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_fb44v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -1.5708
+texture = ExtResource("1_bc5mi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kk5sw")
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(0, 22)
+
+[node name="Ripples" parent="Node" instance=ExtResource("3_fdr8o")]
+position = Vector2(0, 7)

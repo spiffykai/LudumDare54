@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bic1qysmqvxtt"]
+
+[ext_resource type="Texture2D" uid="uid://b2ilbx1s7pchc" path="res://sprites/water_ripples.png" id="1_7rl0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ckab"]
+atlas = ExtResource("1_7rl0f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bl8l"]
+atlas = ExtResource("1_7rl0f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjoeo"]
+atlas = ExtResource("1_7rl0f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eui5"]
+atlas = ExtResource("1_7rl0f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptjsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ckab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bl8l")
+}],
+"loop": true,
+"name": &"big",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjoeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eui5")
+}],
+"loop": true,
+"name": &"small",
+"speed": 2.0
+}]
+
+[node name="Ripples" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ptjsy")
+animation = &"big"

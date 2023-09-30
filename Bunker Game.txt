@@ -1,0 +1,23 @@
+Bunker Game
+Limited space for defenses and resource generation
+Every round you can change layout and remove or add objects
+Can go rounds without resource generation, but will lose resources over time
+Can go rounds without defense, but if there is not enough defense that round your bunker takes damage
+If your bunker is fully damaged or out of a resource, you lose
+Might slowly get more people in your bunker to make you lose eventaully
+
+Ship Game
+manuever a ship through a series of small canals / passageways, slowly getting harder
+Tilemap
+4 levels
+
+
+TO-DO:
+sinking "animation"
+main menu
+death screen
+victory animation
+end
+sounds
+water effects
+more levels
