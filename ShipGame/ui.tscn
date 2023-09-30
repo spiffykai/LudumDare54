@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://q88e8d5sjyc1"]
+[gd_scene load_steps=5 format=3 uid="uid://q88e8d5sjyc1"]
+
+[ext_resource type="FontFile" uid="uid://c50r8d6m6tg4w" path="res://Draxel.ttf" id="1_2h0bg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4n18"]
 bg_color = Color(0, 0, 0, 1)
@@ -73,6 +75,7 @@ show_percentage = false
 
 [node name="DeadLabel" type="Label" parent="."]
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,6 +88,9 @@ offset_right = 70.5
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2h0bg")
+theme_override_font_sizes/font_size = 28
 text = "You have died :(
 Press 'R' to restart"
 horizontal_alignment = 1

@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx4woanm8nb4m"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_amkla"]
+[ext_resource type="TileSet" uid="uid://dt4rlb2go5n4w" path="res://level_1.tres" id="1_jrp4q"]
+[ext_resource type="FontFile" uid="uid://c50r8d6m6tg4w" path="res://Draxel.ttf" id="1_tpq8e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72hr5"]
+bg_color = Color(0, 0.447059, 0.776471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba0d3"]
+bg_color = Color(0, 0.447059, 0.776471, 1)
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_amkla")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.745098, 0.952941, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_jrp4q")
+format = 2
+layer_0/tile_data = PackedInt32Array(786432, 0, 0, 786433, 0, 0, 851969, 0, 0, 851970, 0, 0, 917506, 0, 0, 917507, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048596, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 917528, 0, 0, 917529, 0, 0, 851993, 0, 0, 851994, 0, 0, 786458, 0, 0, 786459, 0, 0, 720923, 0, 0, 720924, 0, 0, 655388, 0, 0, 589852, 0, 0, 589853, 0, 0, 524317, 0, 0, 655360, 0, 0, 655361, 0, 0, 720897, 0, 0, 720896, 0, 0, 589824, 0, 0, 1048585, 0, 1, 983048, 0, 1, 917508, 0, 1, 851971, 0, 1, 786434, 0, 1, 589825, 0, 1, 524288, 0, 1, 1048595, 65536, 1, 983060, 65536, 1, 917527, 65536, 1, 851992, 65536, 1, 786457, 65536, 1, 720922, 65536, 1, 655387, 65536, 1, 524316, 65536, 1, 458781, 65536, 1, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 983068, 0, 0, 983069, 0, 0, 917533, 0, 0, 851997, 0, 0, 786461, 0, 0, 720925, 0, 0, 786460, 0, 0, 851996, 0, 0, 917531, 0, 0, 917530, 0, 0, 983066, 0, 0, 851995, 0, 0, 917532, 0, 0, 983065, 0, 0, 983067, 0, 0, 1048605, 0, 0, 655389, 0, 0, 1048582, 0, 0, 1048581, 0, 0, 1048580, 0, 0, 1048579, 0, 0, 1048578, 0, 0, 983041, 0, 0, 917504, 0, 0, 851968, 0, 0, 983040, 0, 0, 1048577, 0, 0, 983042, 0, 0, 917505, 0, 0, 1048576, 0, 0, 262168, 1, 65536)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -50.0
+offset_right = 90.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tpq8e")
+theme_override_font_sizes/font_size = 36
+text = "Canal Master"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -10.0
+offset_right = 23.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tpq8e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_72hr5")
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = 28.0
+offset_right = 23.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_tpq8e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ba0d3")
+text = "QUIT"
+
+[node name="CopyrightLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 225.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("1_tpq8e")
+theme_override_font_sizes/font_size = 13
+text = "Made by spiffykai for Ludum Dare 54"
+
+[connection signal="pressed" from="UI/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/QuitButton" to="." method="_on_quit_button_pressed"]

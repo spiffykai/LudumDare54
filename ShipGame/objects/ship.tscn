@@ -1,8 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwruhhb60bwqq"]
+[gd_scene load_steps=10 format=3 uid="uid://cwruhhb60bwqq"]
 
 [ext_resource type="Texture2D" uid="uid://bclns4pb4phr5" path="res://sprites/ship.png" id="1_bc5mi"]
 [ext_resource type="Script" path="res://objects/ship.gd" id="1_fb44v"]
+[ext_resource type="Texture2D" uid="uid://cn32gahfn82hs" path="res://sprites/ship_sinking.png" id="2_smybo"]
 [ext_resource type="PackedScene" uid="uid://bic1qysmqvxtt" path="res://objects/ripples.tscn" id="3_fdr8o"]
+[ext_resource type="AudioStream" uid="uid://s6aj0yn0saxt" path="res://sounds/explosion (1).wav" id="5_2wr1n"]
+[ext_resource type="AudioStream" uid="uid://ddiw1e8h0kacs" path="res://sounds/synth.wav" id="6_mg367"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pyb4"]
+atlas = ExtResource("2_smybo")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b17o2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pyb4")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"death",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bc5mi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk5sw"]
 radius = 4.0
@@ -11,10 +40,11 @@ height = 46.0
 [node name="Ship" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_fb44v")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 rotation = -1.5708
-texture = ExtResource("1_bc5mi")
+sprite_frames = SubResource("SpriteFrames_b17o2")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kk5sw")
@@ -24,3 +54,13 @@ position = Vector2(0, 22)
 
 [node name="Ripples" parent="Node" instance=ExtResource("3_fdr8o")]
 position = Vector2(0, 7)
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2wr1n")
+volume_db = -19.676
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mg367")
+volume_db = -21.55
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
